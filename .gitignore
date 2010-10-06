@@ -1,0 +1,7 @@
+*~
+*.pyc
+semantic.cache
+.ropeproject/
+/build/
+/dist/
+/*.egg-info/
