@@ -17,6 +17,8 @@ class Bill(models.Model):
 
     soap_code  = models.IntegerField(blank=True, null=True)
 
+    status     = models.IntegerField(blank=True, null=True)
+
     @transaction.commit_manually
     def save(self, force_insert=False, force_update=False, using=None):
         sid = transaction.savepoint()
@@ -51,4 +53,4 @@ class Bill(models.Model):
         transaction.commit()
 
     def __unicode__(self):
-        return "%s - %s (%s)" % (self.txn_id, self.amount, self.phone)
+        return "%s - %s (%s)" % (self.payment_no, self.amount, self.phone)
