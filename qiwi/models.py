@@ -1,14 +1,14 @@
-
 from datetime import datetime, timedelta
 from time import sleep
 
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError, models, transaction
 
 import signals
 
 class Bill(models.Model):
-    user       = models.ForeignKey('auth.User')
+    user       = models.ForeignKey(get_user_model())
     created_on = models.DateTimeField(unique=True, editable=False)
     payment_no = models.PositiveIntegerField(unique=True, editable=False)
 
